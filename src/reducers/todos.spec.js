@@ -4,7 +4,7 @@ import todos from './todos'
 describe('todos reducer', () => {
   it('should handle initial state', () => {
     expect(
-      todos(undefined, {})
+      todos(undefined, { type: '@@INIT' })
     ).toEqual([])
   })
 
