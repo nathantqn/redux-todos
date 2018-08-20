@@ -1,3 +1,4 @@
+// @flow
 import todos from './todos'
 
 describe('todos reducer', () => {

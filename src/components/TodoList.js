@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, toggleTodo }) => (
+const TodoList = ({ todos, toggleTodo }: {todos: Array<any>, toggleTodo: Function}) => (
   <ul>
     {todos.map(todo =>
       <Todo

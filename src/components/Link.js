@@ -1,7 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 
-const Link = ({ active, children, onClick }) => (
+const Link = ({ active, children, onClick }: {active: boolean, children: React.Node, onClick: Function}) => (
     <button
        onClick={onClick}
        disabled={active}
