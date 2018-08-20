@@ -10,9 +10,9 @@ describe('todo actions', () => {
   })
 
   it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
-    expect(actions.setVisibilityFilter('active')).toEqual({
+    expect(actions.setVisibilityFilter('SHOW_ACTIVE')).toEqual({
       type: 'SET_VISIBILITY_FILTER',
-      filter: 'active'
+      filter: 'SHOW_ACTIVE'
     })
   })
 
