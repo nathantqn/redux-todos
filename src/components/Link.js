@@ -1,7 +1,8 @@
+// @flow
 import * as React from 'react'
 import PropTypes from 'prop-types'
 
-const Link = ({ active, children, onClick }: {active: boolean, children: React.Node, onClick: Function}) => (
+const Link = ({ active, children, onClick }: {active: boolean, children: React.Node, onClick: () => void}) => (
     <button
        onClick={onClick}
        disabled={active}
