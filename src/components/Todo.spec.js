@@ -5,24 +5,20 @@ import { shallow } from 'enzyme';
 
 import Todo from './Todo';
 
-const setup = (setupProps) => {
+const setup = setupProps => {
   const defaultProps = {
     text: 'Codelink',
     completed: false,
-    onClick: jest.fn()
+    onClick: jest.fn(),
   };
   const props = { ...defaultProps, ...setupProps };
   const wrapper = shallow(
-    <Todo
-      text={props.text}
-      completed={props.completed}
-      onClick={props.onClick}
-    />
+    <Todo text={props.text} completed={props.completed} onClick={props.onClick} />
   );
 
   return {
     props,
-    wrapper
+    wrapper,
   };
 };
 

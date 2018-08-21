@@ -8,21 +8,22 @@ import { addTodo } from '../actions';
 import type { Dispatch } from '../types';
 
 export type Props = {
-  dispatch: Dispatch
+  dispatch: Dispatch,
 };
 
 export type State = {
-  value: string
+  value: string,
 };
 
 class AddTodo extends Component<Props, State> {
-  input: HTMLInputElement;
   state = {
-    value: ''
+    value: '',
   };
+
   handleChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
     this.setState({ value: event.currentTarget.value });
   };
+
   handleSubmit = (event: Event) => {
     event.preventDefault();
     if (!this.state.value.trim()) {
@@ -31,14 +32,15 @@ class AddTodo extends Component<Props, State> {
     this.props.dispatch(addTodo(this.state.value));
     this.setState({ value: '' });
   };
+
+  input: HTMLInputElement;
+
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <input value={this.state.value} onChange={this.handleChange} />
-          <button type="submit">
-            Add Todo
-          </button>
+          <button type="submit">Add Todo</button>
         </form>
       </div>
     );

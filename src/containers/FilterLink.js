@@ -9,12 +9,12 @@ import type { State, Dispatch } from '../types';
 import type { VisibilityFilter } from '../types/visibilityFilter';
 
 type OwnProps = {
-  filter: VisibilityFilter
+  filter: VisibilityFilter,
 };
 
 const mapStateToProps = (state: State, ownProps: OwnProps) => {
   return {
-    active: state.visibilityFilter === ownProps.filter
+    active: state.visibilityFilter === ownProps.filter,
   };
 };
 
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnProps) => {
   return {
     onClick: () => {
       dispatch(setVisibilityFilter(ownProps.filter));
-    }
+    },
   };
 };
 

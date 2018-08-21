@@ -5,11 +5,11 @@ import { shallow } from 'enzyme';
 
 import Link from './Link';
 
-const setup = (setupProps) => {
+const setup = setupProps => {
   const defaultProps = {
     active: false,
     onClick: jest.fn(),
-    children: 'Test link'
+    children: 'Test link',
   };
   const props = { ...defaultProps, ...setupProps };
   const wrapper = shallow(
@@ -20,7 +20,7 @@ const setup = (setupProps) => {
 
   return {
     props,
-    wrapper
+    wrapper,
   };
 };
 
@@ -37,14 +37,13 @@ describe('Link', () => {
 
   describe('when button is clicked', () => {
     test('should trigger click event correctly', () => {
-      const preventDefault = jest.fn();
       const { props, wrapper } = setup();
       expect(wrapper).toMatchSnapshot();
 
       const link = wrapper.find('button');
       link.simulate('click');
 
-      expect(props.onClick).toHaveBeenCalledTimes(1)
-    })
-  })
+      expect(props.onClick).toHaveBeenCalledTimes(1);
+    });
+  });
 });

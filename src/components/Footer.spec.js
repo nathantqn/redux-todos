@@ -12,7 +12,7 @@ const setup = () => {
 
   return {
     store,
-    wrapper
+    wrapper,
   };
 };
 

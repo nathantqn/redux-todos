@@ -5,19 +5,17 @@ import { shallow } from 'enzyme';
 
 import TodoList from './TodoList';
 
-const setup = (setupProps) => {
+const setup = setupProps => {
   const defaultProps = {
     todos: [],
-    onTodoClick: jest.fn()
+    onTodoClick: jest.fn(),
   };
   const props = { ...defaultProps, ...setupProps };
-  const wrapper = shallow(
-    <TodoList todos={props.todos} toggleTodo={props.onTodoClick} />
-  );
+  const wrapper = shallow(<TodoList todos={props.todos} toggleTodo={props.onTodoClick} />);
 
   return {
     props,
-    wrapper
+    wrapper,
   };
 };
 
@@ -33,14 +31,14 @@ describe('TodoList', () => {
         {
           text: 'Codelink',
           completed: false,
-          id: 0
+          id: 0,
         },
         {
           text: 'Nhat',
           completed: true,
-          id: 0
-        }
-      ]
+          id: 0,
+        },
+      ],
     });
 
     test('renders a list of todos', () => {
@@ -48,14 +46,17 @@ describe('TodoList', () => {
     });
 
     test('calls onTodoClick when its todo children clicked', () => {
-      wrapper.find('Todo').first().simulate('click');
+      wrapper
+        .find('Todo')
+        .first()
+        .simulate('click');
       expect(props.onTodoClick).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('without todos', () => {
-    const { wrapper} = setup();    
-   test('renders nothing', () => {
+    const { wrapper } = setup();
+    test('renders nothing', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });

@@ -9,18 +9,22 @@ import { setVisibilityFilter } from '../actions';
 
 const setup = () => {
   const store = configureStore()({});
-  const wrapper = shallow(<FilterLink filter="SHOW_ALL" store={store}>Show All</FilterLink>);
+  const wrapper = shallow(
+    <FilterLink filter="SHOW_ALL" store={store}>
+      Show All
+    </FilterLink>
+  );
 
   return {
     store,
-    wrapper
+    wrapper,
   };
 };
 
 describe('FilterLink', () => {
   test('renders without crashing', () => {
     const { wrapper } = setup();
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot();
   });
 
   test('sets the correct filter when clicked', () => {
