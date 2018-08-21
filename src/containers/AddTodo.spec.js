@@ -37,14 +37,13 @@ describe('<AddTodo/>', () => {
     });
   });
 
-  describe('handleSubmit', () => {
-
-    test('should calls preventDefault to stop the form from submiting', () => {
-        let preventDefault = jest.fn();
-        let { wrapper } = setup();
-        let form = wrapper.shallow().shallow().find('form');
-        form.simulate('submit', { preventDefault });
-        expect(preventDefault).toHaveBeenCalledTimes(1);
+  describe('handleSubmit', () => {  
+   test('should calls preventDefault to stop the form from submiting', () => {
+      let preventDefault = jest.fn();
+      let { wrapper } = setup();
+      let form = wrapper.shallow().shallow().find('form');
+      form.simulate('submit', { preventDefault });
+      expect(preventDefault).toHaveBeenCalledTimes(1);
     });
 
     describe('when value is empty', () => {
@@ -72,8 +71,6 @@ describe('<AddTodo/>', () => {
           expect(store.getActions()).toEqual([
             { id: 0, text: 'Codelink', type: 'ADD_TODO' }
           ]);
-
-          // it reset the value state
           expect(deeperWrapper.state().value).toEqual('')
       });
     });
