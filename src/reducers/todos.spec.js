@@ -2,13 +2,13 @@
 import todos from './todos'
 
 describe('todos reducer', () => {
-  it('should handle initial state', () => {
+  test('should handle initial state', () => {
     expect(
       todos(undefined, { type: '@@INIT' })
     ).toEqual([])
   })
 
-  it('should handle ADD_TODO', () => {
+  test('should handle ADD_TODO', () => {
     expect(
       todos([], {
         type: 'ADD_TODO',
@@ -80,7 +80,7 @@ describe('todos reducer', () => {
     ])
   })
 
-  it('should handle TOGGLE_TODO', () => {
+  test('should handle TOGGLE_TODO', () => {
     expect(
       todos([
         {

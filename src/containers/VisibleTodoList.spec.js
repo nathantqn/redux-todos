@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import VisibleTodoList from './VisibleTodoList';
 import { toggleTodo, setVisibilityFilter } from '../actions';
 
-const setup = (setupProps = {}) => {
+const setup = (setupProps) => {
   const store = configureStore()({
     todos: [
       {
@@ -32,12 +32,12 @@ const setup = (setupProps = {}) => {
 };
 
 describe('VisibleTodoList', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('shows all todos when SHOW_ALL filter is active', () => {
+  test('shows all todos when SHOW_ALL filter is active', () => {
     const { store, wrapper } = setup();
     const deeperWrapper = wrapper.shallow();
     store.dispatch(setVisibilityFilter('SHOW_ALL'));
@@ -46,7 +46,7 @@ describe('VisibleTodoList', () => {
 
   });
 
-  it('shows active todos when SHOW_ACTIVE filter is active', () => {
+  test('shows active todos when SHOW_ACTIVE filter is active', () => {
     const { store, wrapper } = setup();
     const deeperWrapper = wrapper.shallow();    
     store.dispatch(setVisibilityFilter('SHOW_ACTIVE'));
@@ -54,7 +54,7 @@ describe('VisibleTodoList', () => {
     expect(store.getActions()).toEqual([setVisibilityFilter('SHOW_ACTIVE')]);
   });
 
-  it('shows completed todos when SHOW_COMPLETED filter is active', () => {
+  test('shows completed todos when SHOW_COMPLETED filter is active', () => {
     const { store, wrapper } = setup();
     const deeperWrapper = wrapper.shallow();
     store.dispatch(setVisibilityFilter('SHOW_COMPLETED'));
@@ -62,7 +62,7 @@ describe('VisibleTodoList', () => {
     expect(store.getActions()).toEqual([setVisibilityFilter('SHOW_COMPLETED')]);
   });
 
-  it('toggles todos when a todo is clicked', () => {
+  test('toggles todos when a todo is clicked', () => {
     const { store, wrapper } = setup();
    
     wrapper.shallow().find('Todo').last().simulate('click');

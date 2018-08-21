@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 
 import TodoList from './TodoList';
 
-const setup = (setupProps = {}) => {
+const setup = (setupProps) => {
   const defaultProps = {
     todos: [],
     onTodoClick: jest.fn()
@@ -22,7 +22,7 @@ const setup = (setupProps = {}) => {
 };
 
 describe('TodoList', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
@@ -43,13 +43,20 @@ describe('TodoList', () => {
       ]
     });
 
-    it('renders a list of todos', () => {
+    test('renders a list of todos', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('calls onTodoClick when its todo children clicked', () => {
+    test('calls onTodoClick when its todo children clicked', () => {
       wrapper.find('Todo').first().simulate('click');
-      expect(props.onTodoClick).toHaveBeenCalled();
+      expect(props.onTodoClick).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('without todos', () => {
+    const { wrapper} = setup();    
+   test('renders nothing', () => {
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });

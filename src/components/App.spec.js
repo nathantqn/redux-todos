@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 
 import App from './App';
 
-const setup = (setupProps = {}) => {
+const setup = (setupProps) => {
   const store = configureStore()();
   const wrapper = shallow(<App store={store} />);
 
@@ -17,7 +17,7 @@ const setup = (setupProps = {}) => {
 };
 
 describe('App', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });

@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 
 import Todo from './Todo';
 
-const setup = (setupProps = {}) => {
+const setup = (setupProps) => {
   const defaultProps = {
     text: 'Codelink',
     completed: false,
@@ -27,20 +27,20 @@ const setup = (setupProps = {}) => {
 };
 
 describe('Todo', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('puts a line through text when completed', () => {
+  test('puts a line through text when completed', () => {
     const { wrapper } = setup({ completed: true });
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('calls onClick when clicked', () => {
+  test('calls onClick when clicked', () => {
     const { props, wrapper } = setup();
     wrapper.find('li').simulate('click');
-    expect(props.onClick).toHaveBeenCalled();
+    expect(props.onClick).toHaveBeenCalledTimes(1);
   });
 });

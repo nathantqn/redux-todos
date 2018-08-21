@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 
 import Footer from './Footer';
 
-const setup = (setupProps = {}) => {
+const setup = (setupProps) => {
   const store = configureStore()();
   const wrapper = shallow(<Footer store={store} />);
 
@@ -17,7 +17,7 @@ const setup = (setupProps = {}) => {
 };
 
 describe('Footer', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });

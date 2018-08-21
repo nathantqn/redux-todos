@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 
 import Link from './Link';
 
-const setup = (setupProps = {}) => {
+const setup = (setupProps) => {
   const defaultProps = {
     active: false,
     onClick: jest.fn(),
@@ -25,24 +25,26 @@ const setup = (setupProps = {}) => {
 };
 
 describe('Link', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders a disabled button when active is true', () => {
+  test('renders a disabled button when active is true', () => {
     const { wrapper } = setup({ active: true });
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('calls onClick() on click', () => {
-    const preventDefault = jest.fn();
-    const { props, wrapper } = setup();
-    expect(wrapper).toMatchSnapshot();
+  describe('when button is clicked', () => {
+    test('should trigger click event correctly', () => {
+      const preventDefault = jest.fn();
+      const { props, wrapper } = setup();
+      expect(wrapper).toMatchSnapshot();
 
-    const link = wrapper.find('button');
-    link.simulate('click');
+      const link = wrapper.find('button');
+      link.simulate('click');
 
-    expect(props.onClick).toBeCalled();
-  });
+      expect(props.onClick).toHaveBeenCalledTimes(1)
+    })
+  })
 });
