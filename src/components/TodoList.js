@@ -1,27 +1,26 @@
 // @flow
-import React from 'react'
-import PropTypes from 'prop-types'
-import Todo from './Todo'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Todo from './Todo';
 import type { Todos } from '../types/todos';
-const TodoList = ({ todos, toggleTodo }: {todos: Todos, toggleTodo: (id: number) => void}) => (
+
+const TodoList = ({ todos, toggleTodo }: { todos: Todos, toggleTodo: (id: number) => void }) => (
   <ul>
-    {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => toggleTodo(todo.id)}
-      />
-    )}
+    {todos.map(todo => (
+      <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
+    ))}
   </ul>
-)
+);
 
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    completed: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
-  }).isRequired).isRequired,
-  toggleTodo: PropTypes.func.isRequired
-}
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      completed: PropTypes.bool.isRequired,
+      text: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  toggleTodo: PropTypes.func.isRequired,
+};
 
-export default TodoList
+export default TodoList;
