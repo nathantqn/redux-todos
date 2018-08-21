@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import VisibleTodoList from './VisibleTodoList';
 import { toggleTodo, setVisibilityFilter } from '../actions';
 
-const setup = (setupProps) => {
+const setup = () => {
   const store = configureStore()({
     todos: [
       {

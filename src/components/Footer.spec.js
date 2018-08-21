@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 
 import Footer from './Footer';
 
-const setup = (setupProps) => {
+const setup = () => {
   const store = configureStore()();
   const wrapper = shallow(<Footer store={store} />);
 

@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 
 import AddTodo from './AddTodo';
 
-const setup = (setupProps) => {
+const setup = () => {
   const store = configureStore()({ todos: [] });
   const wrapper = shallow(<AddTodo store={store} />);
 

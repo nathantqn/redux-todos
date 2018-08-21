@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import FilterLink from './FilterLink';
 import { setVisibilityFilter } from '../actions';
 
-const setup = (setupProps) => {
+const setup = () => {
   const store = configureStore()({});
   const wrapper = shallow(<FilterLink filter="SHOW_ALL" store={store}>Show All</FilterLink>);
 

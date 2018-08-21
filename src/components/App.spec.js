@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 
 import App from './App';
 
-const setup = (setupProps) => {
+const setup = () => {
   const store = configureStore()();
   const wrapper = shallow(<App store={store} />);
 
