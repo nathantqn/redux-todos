@@ -18,6 +18,7 @@ export type State = {
 class AddTodo extends Component<Props, State> {
   state = {
     value: '',
+    test: ''
   };
 
   handleChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
